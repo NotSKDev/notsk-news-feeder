@@ -47,7 +47,7 @@ const feed = new Feed();
 
 **News Image Preview (resized 290x160):**
 
-![Sample](https://r2.fivemanage.com/9JxmrTZeBRNmJpMZ0FVfn/IMG_3303.jpeg)
+![Sample](https://r2.fivemanage.com/9JxmrTZeBRNmJpMZ0FVfn/IMG_3304.png)
 
 ---
 
