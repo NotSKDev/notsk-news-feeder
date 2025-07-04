@@ -1,4 +1,4 @@
-# 📰 notsk-twentyfournews-feed
+# 📰 notsk-news-feeder
 
 A secure and developer-friendly Node.js package that fetches the latest breaking news from [TwentyFour News](https://www.twentyfournews.com) — a leading **Malayalam-language news channel** — using their official RSS feed.
 
@@ -13,7 +13,7 @@ This package fetches:
 ## 📦 Installation
 
 ```bash
-npm install notsk-twentyfournews-feed
+npm install notsk-news-feeder
 ```
 
 ---
@@ -21,7 +21,7 @@ npm install notsk-twentyfournews-feed
 ## 🧪 Example Usage
 
 ```js
-const Feed = require('notsk-twentyfournews-feed');
+const Feed = require('notsk-news-feeder');
 const feed = new Feed();
 
 (async () => {
