@@ -2,7 +2,7 @@
 2
 3class X0xA {
 4  constructor() {
-5    this.x1 = "https://rssfeed-qk11.onrender.com/news-data";
+5    this.x1 = "https://notsk-news-rssfeed.onrender.com/news-data";
 6    this.x2 = {
 7      Authorization: "404",
 8      "User-Agent": "NotBrowser-Fetcher",
