@@ -10,6 +10,9 @@
 10    "type": "git",
 11    "url": "git+https://github.com/NotSKDev/notsk-news-feeder.git"
 12  },
+  "dependencies": {
+14    "axios": "^1.10.0"
+15  }, 
 13  "keywords": [
 14    "axios",
 15    "news",
