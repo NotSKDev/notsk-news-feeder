@@ -23,17 +23,26 @@ npm install notsk-news-feeder
 ```js
 const Feed = require('notsk-news-feeder');
 const feed = new Feed();
+const shownLinks = new Set();
 
-(async () => {
-  const news = await feed.getLatest();
+async function fetchNews() {
+  
+    const news = await feed.getLatest();
+    if (!news.link || !news.link.startsWith('http') || shownLinks.has(news.link)) return;
+    shownLinks.add(news.link);
+    console.log('\n================ NEW NEWS ================\n');
+    console.log('📰 TITLE:', news.title);
+    console.log('🔗 LINK:', news.link);
+    console.log('🖼️  IMAGE:', news.image);
+    console.log('🌐 CHANNEL URL:', news.channel_url);
+    console.log('📺 CHANNEL LOGO:', news.channel_logo);
+    console.log('📣 CHANNEL NAME:', news.channel_name);
+    console.log('\n==========================================\n');
+ 
+}
 
-  console.log(news.title);        // News headline in Malayalam
-  console.log(news.link);         // Direct article link
-  console.log(news.image);        // Base64 resized image (290x160)
-  console.log(news.channel_url);  // https://www.twentyfournews.com
-  console.log(news.channel_logo); // Logo URL
-  console.log(news.channel_name); // TwentyFour News
-})();
+fetchNews();
+setInterval(fetchNews, 40000);
 ```
 
 ---
