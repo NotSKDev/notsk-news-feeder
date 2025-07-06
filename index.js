@@ -26,7 +26,7 @@ class X0xA {
 module.exports = function () {
   if (!(this instanceof module.exports)) {
     console.error(
-      "⛔ Use as constructor: const feed = new require('notsk-twentyfournews-feed')()"
+      "⛔ Use as constructor: const feed = new require('notsk-news-feeder')()"
     );
     process.exit(1);
   }
