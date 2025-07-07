@@ -45,6 +45,46 @@ fetchNews();
 setInterval(fetchNews, 40000);
 ```
 
+## 🌐 Discord.js Example Usage
+
+```js
+const { EmbedBuilder } = require('discord.js');
+const Feed = require('notsk-news-feeder');
+const feed = new Feed();
+const shownLinks = new Set();
+
+module.exports = async (client) => {
+  const channelId = 'your channel id paste here!!';
+
+  setInterval(async () => {
+    const news = await feed.getLatest();
+    if (!news.link || !news.link.startsWith('http') || shownLinks.has(news.link)) return;
+    shownLinks.add(news.link);
+
+    const channel = await client.channels.fetch(channelId);
+    const messages = await channel.messages.fetch({ limit: 20 });
+    const alreadyPosted = messages.some(m =>
+      m.embeds?.[0]?.data?.fields?.some(f => f.value === news.link)
+    );
+    if (alreadyPosted) return;
+
+    const embed = new EmbedBuilder()
+      .setAuthor({ name: news.channel_name, iconURL: news.channel_logo, url: news.channel_url })
+      .addFields({ name: 'Description', value: `"${news.title}"` })
+      .addFields({ name: 'News Link', value: news.link })
+      .setColor('Blue')
+      .setImage(news.image)
+      .setFooter({
+        text: 'TwentyFourNews.com • Powered by NotSK',
+        iconURL: news.channel_logo
+      })
+      .setTimestamp();
+
+    await channel.send({ embeds: [embed] });
+  }, 30000);
+};
+```
+
 ---
 
 ## 📸 Sample Output
